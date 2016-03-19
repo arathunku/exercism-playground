@@ -4,7 +4,8 @@ defmodule Sublist do
   Returns whether the first list is a sublist or a superlist of the second list
   and if not whether it is equal or unequal to the second list.
   """
-  def compare(a, b) when length(a) == length(b), do: compare(a,b, :equal)
+  def compare(a, b) when length(a) == length(b) and a === b, do: :equal
+  def compare(a, b) when length(a) == length(b) and a !== b, do: :unequal
   def compare(a, b) when length(a) > length(b), do: compare(b, a, :superlist)
   def compare(a, b) when length(a) < length(b), do: compare(a, b, :sublist)
 
@@ -32,42 +33,3 @@ defmodule Sublist do
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def comparep(a = [a_head | a_tail], b = [b_head | b_tail], resp) do
-#   if a_head === b_head do
-#     IO.inspect [true, a, b]
-
-#     case comparep(a_tail, b_tail, resp) do
-#       {:unequal, tail} ->
-#         IO.inspect ["start over", a, tail]
-#         comparep(a, tail, resp)
-#       {res, v} -> {res, v}
-#     end
-#   else
-#     IO.inspect [false, a, b]
-#     {:unequal, b}
-#   end
-# end
