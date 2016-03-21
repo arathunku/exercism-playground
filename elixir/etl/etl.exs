@@ -12,10 +12,7 @@ defmodule ETL do
     input
     |> Enum.reduce(%{}, fn ({k,v}, acc) ->
       Enum.reduce(v, acc, fn (v, acc) ->
-        Map.update(acc,
-                   String.downcase(v),
-                   k,
-                   &(&1 + 1))
+        Map.put(acc, String.downcase(v), k)
       end)
     end)
   end
