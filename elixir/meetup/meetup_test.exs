@@ -3,7 +3,7 @@ if !System.get_env("EXERCISM_TEST_EXAMPLES") do
 end
 
 ExUnit.start
-ExUnit.configure exclude: :pending, trace: true
+# ExUnit.configure exclude: :pending, trace: true
 
 defmodule MeetupTest do
   use ExUnit.Case
@@ -158,7 +158,7 @@ defmodule MeetupTest do
     assert Meetup.meetup(2013, 11, :friday, :first) == {2013, 11, 1}
   end
 
-  @tag :pending
+  # @tag :pending
   test "first friday of december 2013" do
     assert Meetup.meetup(2013, 12, :friday, :first) == {2013, 12, 6}
   end
