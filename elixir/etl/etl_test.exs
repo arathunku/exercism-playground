@@ -3,13 +3,13 @@ if !System.get_env("EXERCISM_TEST_EXAMPLES") do
 end
 
 ExUnit.start
-ExUnit.configure exclude: :pending, trace: true
+# ExUnit.configure exclude: :pending, trace: true
 
 defmodule TransformTest do
   use ExUnit.Case
 
-  # @tag :pending
-  test "transform one value" do
+  @tag :pending
+  test "transform one value4" do
     old = %{1 => ["WORLD"]}
     expected = %{"world" => 1}
 
@@ -37,7 +37,7 @@ defmodule TransformTest do
     assert ETL.transform(old) == expected
   end
 
-  @tag :pending
+  # @tag :pending
   test "full dataset" do
     old = %{
       1 =>  ~W(A E I O U L N R S T),
