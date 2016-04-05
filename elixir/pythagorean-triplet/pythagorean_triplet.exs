@@ -4,24 +4,20 @@ defmodule Triplet do
   Calculates sum of a given triplet of integers.
   """
   @spec sum([non_neg_integer]) :: non_neg_integer
-  def sum(triplet) do
-
-  end
+  def sum(triplet), do: Enum.sum(triplet)
 
   @doc """
   Calculates product of a given triplet of integers.
   """
   @spec product([non_neg_integer]) :: non_neg_integer
-  def product(triplet) do
-
-  end
+  def product(triplet), do: Enum.reduce(triplet, 1, &( &1 * &2 ))
 
   @doc """
   Determines if a given triplet is pythagorean. That is, do the squares of a and b add up to the square of c?
   """
   @spec pythagorean?([non_neg_integer]) :: boolean
   def pythagorean?([a, b, c]) do
-
+    :math.pow(a, 2) + :math.pow(b, 2) == :math.pow(c, 2)
   end
 
   @doc """
@@ -29,7 +25,9 @@ defmodule Triplet do
   """
   @spec generate(non_neg_integer, non_neg_integer) :: [list(non_neg_integer)]
   def generate(min, max) do
-
+    for a <- min..max, b <- a..max, c <- min..max, pythagorean?([a,b,c]) do
+      [a, b, c]
+    end
   end
 
   @doc """
@@ -37,6 +35,7 @@ defmodule Triplet do
   """
   @spec generate(non_neg_integer, non_neg_integer, non_neg_integer) :: [list(non_neg_integer)]
   def generate(min, max, sum) do
-   
+    generate(min, max)
+    |> Enum.filter(&(Enum.sum(&1) == sum))
   end
 end
