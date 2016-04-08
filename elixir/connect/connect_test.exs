@@ -3,7 +3,7 @@ if !System.get_env("EXERCISM_TEST_EXAMPLES") do
 end
 
 ExUnit.start
-ExUnit.configure exclude: :pending, trace: true
+# ExUnit.configure exclude: :pending, trace: true
 
 defmodule ConnectTest do
   use ExUnit.Case
@@ -12,7 +12,7 @@ defmodule ConnectTest do
     Enum.map(rows, &String.replace(&1, " ", ""))
   end
 
-  # @tag :pending
+  @tag :pending
   test "empty board has no winner" do
     board = remove_spaces [
       ". . . . .",
@@ -48,7 +48,7 @@ defmodule ConnectTest do
     assert Connect.result_for(board) == :black
   end
 
-  @tag :pending
+  # @tag :pending
   test "rectangle, black wins" do
     board = remove_spaces [
       ". O . .",
