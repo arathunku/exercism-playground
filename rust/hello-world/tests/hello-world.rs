@@ -6,13 +6,13 @@ fn test_no_name() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_sample_name() {
     assert_eq!("Hello, Alice!", hello_world::hello(Some("Alice")));
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn test_other_same_name() {
     assert_eq!("Hello, Bob!", hello_world::hello(Some("Bob")));
 }
