@@ -1,0 +1,10 @@
+use std::collections::HashMap;
+
+
+pub fn nucleotide_counts() -> HashMap<char, usize> {
+    HashMap::new()
+}
+
+pub fn count(asd) -> usize {
+    0
+}
